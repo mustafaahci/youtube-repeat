@@ -1,6 +1,13 @@
 import Loading from "./loading";
 import YoutubeController from "./youtube-controller";
-import { searchURLParams, updateURLParam, removeURLParam, humanizeTime, convertDurationToSeconds } from "./utils";
+import {
+	searchURLParams,
+	updateURLParam,
+	removeURLParam,
+	humanizeTime,
+	convertDurationToSeconds,
+	getId,
+} from "./utils";
 
 let loadingAnimation;
 let loadingContainer = document.querySelector(".player");
@@ -62,9 +69,9 @@ searchbtn.addEventListener("click", (_) => {
 
 	loadingAnimation = new Loading(loadingContainer);
 	loadingAnimation.show();
-
-	youtubeController = new YoutubeController({ videoId: searchInput.value });
-	updateURLParam("id", searchInput.value);
+	let id = getId(searchInput.value);
+	youtubeController = new YoutubeController({ videoId: id });
+	updateURLParam("id", id);
 	removeURLParam("start");
 	removeURLParam("stop");
 	youtubeController.readyEvent = () => loadingAnimation.destroy();

@@ -30,3 +30,12 @@ export function humanizeTime(time) {
 export function convertDurationToSeconds(duration) {
 	return moment.duration(duration).asSeconds();
 }
+
+export function getId(id) {
+	try {
+		const url = new URL(id);
+		return url.searchParams.get("v");
+	} catch (_) {
+		return id;
+	}
+}
