@@ -1,6 +1,6 @@
 import Loading from "./loading";
 import YoutubeController from "./youtube-controller";
-import { searchURLParams, updateURLParam, removeURLParam, humanizeTime } from "./utils";
+import { searchURLParams, updateURLParam, removeURLParam, humanizeTime, convertDurationToSeconds } from "./utils";
 
 let loadingAnimation;
 let loadingContainer = document.querySelector(".player");
@@ -9,6 +9,7 @@ let youtubeController;
 const startBtn = document.getElementById("set-start");
 const stopBtn = document.getElementById("set-stop");
 const searchbtn = document.getElementById("set-video");
+const applyBtn = document.getElementById("apply");
 
 const startInput = document.getElementById("start-time");
 const stopInput = document.getElementById("stop-time");
@@ -68,4 +69,15 @@ searchbtn.addEventListener("click", (_) => {
 	removeURLParam("stop");
 	youtubeController.readyEvent = () => loadingAnimation.destroy();
 	youtubeController.show();
+});
+
+applyBtn.addEventListener("click", (_) => {
+	const startTime = convertDurationToSeconds(startInput.value);
+	const stopTime = convertDurationToSeconds(stopInput.value);
+	if (startTime >= stopTime) return;
+
+	youtubeController.startTime = startTime;
+	youtubeController.stopTime = stopTime;
+	updateURLParam("start", startTime);
+	updateURLParam("stop", stopTime);
 });

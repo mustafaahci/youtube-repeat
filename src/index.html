@@ -24,13 +24,18 @@
 					</div>
 				</div>
 				<div class="controls">
-					<section>
-						<button id="set-start" class="set-start">set start time</button>
-						<input type="text" class="start-time" id="start-time" placeholder="00:00:00" disabled />
+					<section class="buttons">
+						<button id="set-start" class="set-start">
+							<img src="./assets/icons/open-bracket.png" alt="" />
+						</button>
+						<button id="set-stop" class="set-stop">
+							<img src="./assets/icons/close-bracket.png" alt="" />
+						</button>
 					</section>
-					<section>
-						<input type="text" class="stop-time" id="stop-time" placeholder="99:60:60" disabled />
-						<button id="set-stop" class="set-stop">set stop time</button>
+					<section class="inputs">
+						<input type="text" class="start-time" id="start-time" placeholder="00:00:00" />
+						<input type="text" class="stop-time" id="stop-time" placeholder="99:60:60" />
+						<button id="apply"><ion-icon name="checkmark-outline"></ion-icon></button>
 					</section>
 				</div>
 			</div>

@@ -26,3 +26,7 @@ export function humanizeTime(time) {
 	if (!time) return null;
 	return moment.utc(time * 1000).format("HH:mm:ss");
 }
+
+export function convertDurationToSeconds(duration) {
+	return moment.duration(duration).asSeconds();
+}
