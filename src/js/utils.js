@@ -39,3 +39,19 @@ export function getId(id) {
 		return id;
 	}
 }
+
+export function searchLocalStorageParams() {
+	const id = localStorage.getItem("id");
+	const start = localStorage.getItem("start");
+	const stop = localStorage.getItem("stop");
+
+	return { id, start, stop };
+}
+
+export function updateLocalStorageParam(param, value) {
+	localStorage.setItem(param, value);
+}
+
+export function removeLocalStorageParam(param) {
+	localStorage.removeItem(param);
+}

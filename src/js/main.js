@@ -6,6 +6,9 @@ import {
 	removeURLParam,
 	humanizeTime,
 	convertDurationToSeconds,
+	searchLocalStorageParams,
+	updateLocalStorageParam,
+	removeLocalStorageParam,
 	getId,
 } from "./utils";
 
@@ -30,22 +33,31 @@ window.addEventListener("DOMContentLoaded", () => {
 window.addEventListener("load", () => {
 	const { id, start, stop } = searchURLParams();
 	if (id) {
-		searchInput.value = id;
-		youtubeController = new YoutubeController({ videoId: id });
-		if (start) {
-			youtubeController.startTime = start;
-			startInput.value = humanizeTime(start);
-		}
-		if (stop) {
-			youtubeController.stopTime = stop;
-			stopInput.value = humanizeTime(stop);
-		}
-		youtubeController.show();
-		youtubeController.readyEvent = () => loadingAnimation.destroy();
+		setYoutubeController(id, start, stop);
 	} else {
-		loadingAnimation.destroy();
+		const { id, start, stop } = searchLocalStorageParams();
+		if (id) {
+			setYoutubeController(id, start, stop);
+		} else {
+			loadingAnimation.destroy();
+		}
 	}
 });
+
+function setYoutubeController(id, start, stop) {
+	searchInput.value = id;
+	youtubeController = new YoutubeController({ videoId: id });
+	if (start) {
+		youtubeController.startTime = start;
+		startInput.value = humanizeTime(start);
+	}
+	if (stop) {
+		youtubeController.stopTime = stop;
+		stopInput.value = humanizeTime(stop);
+	}
+	youtubeController.show();
+	youtubeController.readyEvent = () => loadingAnimation.destroy();
+}
 
 startBtn.addEventListener("click", (_) => {
 	if (!youtubeController) return;
@@ -53,6 +65,7 @@ startBtn.addEventListener("click", (_) => {
 	youtubeController.startTime = time;
 	startInput.value = humanizeTime(time);
 	updateURLParam("start", time);
+	updateLocalStorageParam("start", time);
 });
 
 stopBtn.addEventListener("click", (_) => {
@@ -62,6 +75,7 @@ stopBtn.addEventListener("click", (_) => {
 	youtubeController.stopTime = time;
 	stopInput.value = humanizeTime(time);
 	updateURLParam("stop", time);
+	updateLocalStorageParam("stop", time);
 });
 
 searchbtn.addEventListener("click", (_) => {
@@ -74,6 +88,9 @@ searchbtn.addEventListener("click", (_) => {
 	updateURLParam("id", id);
 	removeURLParam("start");
 	removeURLParam("stop");
+	updateLocalStorageParam("id", id);
+	removeLocalStorageParam("start");
+	removeLocalStorageParam("stop");
 	youtubeController.readyEvent = () => loadingAnimation.destroy();
 	youtubeController.show();
 });
@@ -87,4 +104,6 @@ applyBtn.addEventListener("click", (_) => {
 	youtubeController.stopTime = stopTime;
 	updateURLParam("start", startTime);
 	updateURLParam("stop", stopTime);
+	updateLocalStorageParam("start", startTime);
+	updateLocalStorageParam("stop", stopTime);
 });
