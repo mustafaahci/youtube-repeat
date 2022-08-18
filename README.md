@@ -14,7 +14,7 @@ The URL will look like this:
 https://youtube-repeat.netfily.app/?id=rMfXLyXplKs&start=9&stop=99 
 
 Submit [issues](https://github.com/mustafaahci/youtube-repeat/issues/new) and
-[pull requests](https://github.com/mustafaahci/youtube-repeat/compare)for site ideas or copy edits.  
+[pull requests](https://github.com/mustafaahci/youtube-repeat/compare) for site ideas or copy edits.  
 
 I hope that you will enjoy using my website and thank you for trying it out!
 
