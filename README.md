@@ -11,7 +11,7 @@ You can click the `{` button to set the start time and the `}` button to set the
 Once you have done this, you can enjoy your favorite video; the video or the selected section will continue repeating.
 If you want to share it with your friends, you can simply copy the URL of the video and send it on WhatsApp or any other social media.
 The URL will look like this:  
-https://youtube-repeat.netfily.app/?id=rMfXLyXplKs&start=9&stop=99 
+https://youtube-repeat.netlify.app/?id=rMfXLyXplKs&start=9&stop=99 
 
 Submit [issues](https://github.com/mustafaahci/youtube-repeat/issues/new) and
 [pull requests](https://github.com/mustafaahci/youtube-repeat/compare) for site ideas or copy edits.  
