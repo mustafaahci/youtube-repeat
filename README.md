@@ -20,8 +20,7 @@ I hope that you will enjoy using my website and thank you for trying it out!
 
 # To Set up Locally
 
-If you're looking to just run all of the files from this repository and display them on your machine, there's no need to worry.    
-Just by following the steps here, you will good to go :
+If you want to run the project locally, just follow these steps
 
 Requirements →
 - [Git](https://git-scm.com)
