@@ -6,7 +6,7 @@
 
 YouTube Repeater is a website that allows users to repeat any part of a YouTube video. It is easy to use and share with friends.
 
-Firstly, you need to visit https://youtube-repeat.netfily.app/. On this page, you can enter the YouTube video URL and select a section you want to repeat.
+Firstly, you need to visit https://youtube-repeat.netlify.app/. On this page, you can enter the YouTube video URL and select a section you want to repeat.
 You can click the `{` button to set the start time and the `}` button to set the end time.
 Once you have done this, you can enjoy your favorite video; the video or the selected section will continue repeating.
 If you want to share it with your friends, you can simply copy the URL of the video and send it on WhatsApp or any other social media.
